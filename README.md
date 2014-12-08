@@ -8,4 +8,4 @@ Digging deeper we found that the postgres adapter `activerecord-postgis-adapter-
 Looking at why the parsing exploaded we found that in `ffi-geos-0.5.0/lib/ffi-geos.rb:983` we call `geos_library_path` which returns nil so the returned factory can't use the geo library to parse the string.
 
 Thankfully ffi-geos checks for `GEOS_LIBRARY_PATH` if the geos library is not in the expected place.
-To get it working I set `GEOS_LIBRARY_PATH=/opt/boxen/homebrew/Cellar/geos/3.4.2/lib/libgeos` not sure where the actualy fix should live.
+To get it working I set `GEOS_LIBRARY_PATH=/opt/boxen/homebrew/Cellar/geos/3.4.2/lib/` not sure where the actualy fix should live.
